@@ -17,12 +17,9 @@ class ChatController extends Controller
     }
 
     /**
-     * @throws AuthorizationException
      */
     public function index()
     {
-        $this->authorize('index');
-
         $response = $this->chatService->index();
 
         return $this->customResponse->success('Success', $response->toArray());
@@ -30,12 +27,9 @@ class ChatController extends Controller
 
     /**
      * @throws GuzzleException
-     * @throws AuthorizationException
      */
     public function chat(ChatRequest $request): JsonResponse
     {
-        $this->authorize('chat');
-
         $validated = $request->validated();
 
         $data = $this->chatService->askToChatGpt($validated);

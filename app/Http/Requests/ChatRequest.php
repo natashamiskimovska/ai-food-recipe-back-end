@@ -24,9 +24,9 @@ class ChatRequest extends FormRequest
     {
         return [
             'type' => 'required|string',
-            'include_only' => 'string',
-            'can_include' => 'string',
-            'limit_calories' => 'integer',
+            'include_only' => 'boolean',
+            'can_include' => 'string|nullable',
+            'limit_calories' => 'integer|nullable',
         ];
     }
 }

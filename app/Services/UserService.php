@@ -22,7 +22,8 @@ class UserService
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
 
         return [
-            'token' => $token
+            'token' => $token,
+            'user' => $user
         ];
     }
 
